@@ -8,10 +8,11 @@
 import SwiftUI
 
 @main
-struct comixApp: App {
+struct Comix: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.colorScheme, .light)
         }
     }
 }
