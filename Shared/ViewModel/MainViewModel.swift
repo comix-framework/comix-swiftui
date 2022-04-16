@@ -11,7 +11,7 @@ class MainViewModel: ObservableObject {
     
     @Published var showMenu: Bool = false
     
-    @Published var currentTab: MainTab = .Home
+    @Published var currentTab: MainTab = .Categories
     
 }
 

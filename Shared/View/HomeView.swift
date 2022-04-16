@@ -16,25 +16,16 @@ struct HomeView: View {
             
             HomeAppBarView()
             
-            ZStack {
+            TabView(selection: $viewModel.currentTab) {
                 
-                // if viewModel.currentTab != .Home {
-                    
                 _HomeContentView()
-                    .opacity(viewModel.currentTab == .Home ? 1 : 0)
-                    .offset(x: viewModel.currentTab == .Home ? 0 : 60)
-                    .zIndex(viewModel.currentTab == .Home ? 1 : 0)
-                    
-                // } else {
-                    
-                    _HomeNewFeed()
-                    .opacity(viewModel.currentTab == .NewFeed ? 1 : 0)
-                    .offset(x: viewModel.currentTab == .NewFeed ? 0 : 60)
-                    .zIndex(viewModel.currentTab == .NewFeed ? 1 : 0)
-                    
-                // }
+                    .tag(HomeTab.Home)
+                
+                _HomeNewFeed()
+                    .tag(HomeTab.NewFeed)
                 
             }
+            .tabViewStyle(PageTabViewStyle())
             
         }
             .environmentObject(viewModel)
@@ -49,6 +40,14 @@ struct HomeView: View {
                 HomeSearchView()
                 
                 HomeBannerView()
+                
+                HomeCategoriesView()
+                    .padding(.top, 5)
+                
+                HomeTopViewsView()
+                
+                HomeCompletedView()
+                
                 
             }
             .padding(.horizontal, 20)

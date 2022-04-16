@@ -6,13 +6,30 @@
 //
 
 import SwiftUI
+import SwiftUIX
 
 struct HomeBannerView: View {
+    
+    @State var width: CGFloat = .zero
+    
     var body: some View {
         
-        ImageView("https://i.imgur.com/8wsyU0K.jpg")
-            .scaledToFill()
-            .cornerRadius(20)
+        IntrinsicGeometryReader { proxy in
+            
+            ZStack {
+                
+                Color.clear
+                    .frame(maxWidth: .infinity)
+                
+                ImageView("https://i.imgur.com/tE4FCAJ.jpg")
+                    .scaledToFill()
+                    .frame(maxWidth: proxy.size.width, maxHeight: proxy.size.width * 0.7)
+                
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 0)
+            
+        }
         
     }
 }

@@ -25,7 +25,7 @@ struct MainView: View {
                         .disabled(viewModel.currentTab != .Home)
                         .opacity(viewModel.currentTab == .Home ? 1 : 0)
                     
-                    Color.red
+                    CategoriesView()
                         .disabled(viewModel.currentTab != .Categories)
                         .opacity(viewModel.currentTab == .Categories ? 1 : 0)
                     
